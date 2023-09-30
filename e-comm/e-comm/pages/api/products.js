@@ -1,1 +1,5 @@
-export default async function handle(req, res) {}
+import { initMongoose } from "@/lib/mongoose";
+
+export default async function handle(req, res) {
+  await initMongoose();
+}
