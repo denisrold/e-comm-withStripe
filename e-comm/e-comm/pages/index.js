@@ -12,6 +12,13 @@ export default function Home() {
 
   const categoryNames = [...new Set(productInfo.map((p) => p.category))];
 
+  let products;
+  if (phrase) {
+    products = productInfo.filter((p) => p.name.toLowerCase().includes(phrase));
+  } else {
+    products = productInfo;
+  }
+
   return (
     <div className="p-5">
       <input
@@ -29,7 +36,7 @@ export default function Home() {
             <div key={c}>
               <h2 className="text-xl py-2 capitalize">{c}</h2>
               <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
-                {productInfo
+                {products
                   .filter((p) => p.category === c)
                   .map((productInfo) => (
                     <div key={productInfo._id} className="px-5 snap-start">
