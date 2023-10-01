@@ -28,26 +28,30 @@ export default function Home() {
         }}
         type="text"
         placeholder="Search for products..."
-        className="bg-gray-100 w-full py-2 px-4 rounded-xl"
+        className="bg-gray-100 w-full py-2 px-4 rounded-xl outline-none"
       />
       <div>
         {categoryNames?.map((c) => {
           return (
             <div key={c}>
-              <h2 className="text-xl py-2 capitalize">{c}</h2>
-              <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
-                {products
-                  .filter((p) => p.category === c)
-                  .map((productInfo) => (
-                    <div key={productInfo._id} className="px-5 snap-start">
-                      <Product {...productInfo} />
-                    </div>
-                  ))}
-              </div>
+              {/* find by searchBar */}
+              {products.find((p) => p.category === c) && (
+                <div>
+                  <h2 className="text-xl py-2 capitalize">{c}</h2>
+                  <div className="flex -mx-5 overflow-x-scroll snap-x scrollbar-hide">
+                    {products
+                      .filter((p) => p.category === c)
+                      .map((productInfo) => (
+                        <div key={productInfo._id} className="px-5 snap-start">
+                          <Product {...productInfo} />
+                        </div>
+                      ))}
+                  </div>
+                </div>
+              )}
             </div>
           );
         })}
-        <div className="py-4"></div>
       </div>
     </div>
   );
