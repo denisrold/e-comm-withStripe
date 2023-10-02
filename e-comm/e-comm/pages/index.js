@@ -1,11 +1,13 @@
 import { initMongoose } from "@/lib/mongoose";
 import Product from "../components/Product";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { findAllProducts } from "./api/products";
+import Layout from "@/components/Layout";
 
 export default function Home({ products }) {
   // const [productInfo, setProductInfo] = useState([]);
   const [phrase, setPhrase] = useState("");
+  //esto sera reemplazado por getServrSideProps
   // useEffect(() => {
   //   fetch("/api/products")
   //     .then((response) => response.json())
@@ -19,7 +21,8 @@ export default function Home({ products }) {
     products = products.filter((p) => p.name.toLowerCase().includes(phrase));
   }
   return (
-    <div className="p-5">
+    <Layout>
+      {" "}
       <input
         value={phrase}
         onChange={(e) => {
@@ -52,7 +55,7 @@ export default function Home({ products }) {
           );
         })}
       </div>
-    </div>
+    </Layout>
   );
 }
 
