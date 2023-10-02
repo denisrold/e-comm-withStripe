@@ -3,24 +3,21 @@ import Product from "../components/Product";
 import { useEffect, useState } from "react";
 import { findAllProducts } from "./api/products";
 
-export default function Home() {
-  const [productInfo, setProductInfo] = useState([]);
+export default function Home({ products }) {
+  // const [productInfo, setProductInfo] = useState([]);
   const [phrase, setPhrase] = useState("");
-  useEffect(() => {
-    fetch("/api/products")
-      .then((response) => response.json())
-      .then((json) => setProductInfo(json));
-  }, []);
+  // useEffect(() => {
+  //   fetch("/api/products")
+  //     .then((response) => response.json())
+  //     .then((json) => setProductInfo(json));
+  // }, []);
 
-  const categoryNames = [...new Set(productInfo.map((p) => p.category))];
+  const categoryNames = [...new Set(products.map((p) => p.category))];
 
-  let products;
+  // let products;
   if (phrase) {
-    products = productInfo.filter((p) => p.name.toLowerCase().includes(phrase));
-  } else {
-    products = productInfo;
+    products = products.filter((p) => p.name.toLowerCase().includes(phrase));
   }
-
   return (
     <div className="p-5">
       <input
