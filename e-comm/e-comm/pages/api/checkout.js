@@ -1,3 +1,4 @@
+import Order from "@/models/Order";
 import Product from "../../models/Product";
 import { initMongoose } from "@/lib/mongoose";
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -43,13 +44,23 @@ export default async function handle(req, res) {
 
   // unit_amount: product.price * 100, es porque lo toma en cetavos de dolar. si fuesen euros serian centavos de euros.
 
+  const order = await Order.create({
+    product: line_items,
+    name,
+    email,
+    city,
+    address,
+    paid: 0,
+  });
+
   const session = await stripe.checkout.sessions.create({
     line_items: line_items,
     mode: "payment",
     customer_email: email,
     success_url: `${req.headers.origin}/?success=true`,
     cancel_url: `${req.headers.origin}/?canceled=true`,
+    metadata: { orderId: order._id.toString() },
   });
+
   res.redirect(303, session.url);
-  res.json("ok");
 }
