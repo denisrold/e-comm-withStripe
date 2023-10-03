@@ -13,6 +13,7 @@
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
+    "stripe": "^13.8.0",
     "tailwind-scrollbar-hide": "^1.1.7",
     "use-local-storage-state": "^19.1.0"
   },
