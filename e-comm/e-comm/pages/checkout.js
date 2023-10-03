@@ -19,7 +19,6 @@ export default function CheckoutOutPage() {
       fetch("/api/products?ids=" + uniqueIds.join(","))
         .then((response) => response.json())
         .then((json) => {
-          console.log(json);
           setProductsInfos(json);
         });
     }
@@ -47,7 +46,6 @@ export default function CheckoutOutPage() {
   if (selectedProducts?.length) {
     if (productsInfos.length) {
       for (let id of selectedProducts) {
-        console.log(productsInfos);
         const price = productsInfos.find((p) => p._id === id).price;
         subTotal += price;
       }
