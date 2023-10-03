@@ -159,6 +159,11 @@ export default function CheckoutOutPage() {
                 name="products"
                 value={selectedProducts.join(",")}
               ></input>
+              <input
+                type="hidden"
+                name="delivery"
+                value={deliveryPrice}
+              ></input>
               <button
                 type="submit"
                 className="bg-emerald-500 p-5 text-white w-full rounded-xl py-2 font-bold my-4 shadow-lg shadow-emerald-300 "

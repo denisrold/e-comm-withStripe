@@ -9,7 +9,8 @@ export default async function handle(req, res) {
     res.json("Should be a post, but its NO!");
   }
 
-  const { email, name, address, city } = req.body;
+  const { email, name, address, city, delivery } = req.body;
+
   //search products of body  in mdb
   const productsIds = req.body.products.split(",");
   const uniqIds = [...new Set(productsIds)];
@@ -30,6 +31,16 @@ export default async function handle(req, res) {
       },
     });
   }
+  //DeliveryData Line-items
+  line_items.push({
+    quantity: 1,
+    price_data: {
+      currency: "USD",
+      product_data: { name: "deliveryPrice" },
+      unit_amount: Number(delivery) * 100,
+    },
+  });
+
   // unit_amount: product.price * 100, es porque lo toma en cetavos de dolar. si fuesen euros serian centavos de euros.
 
   const session = await stripe.checkout.sessions.create({
