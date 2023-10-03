@@ -28,7 +28,26 @@ export default function CheckoutOutPage() {
               </div>
               <div className="pl-4">
                 <h3 className=" font-bold text-lg">{productInfo.name}</h3>
-                <p className="text-sm">{productInfo.description}</p>
+                <p className="text-sm leading-4  text-gray-500">
+                  {productInfo.description}
+                </p>
+                <div className="flex">
+                  <div className="grow">${productInfo.price}</div>
+                  <div>
+                    <button className="border border-emerald-500 px-2 rounded-lg text-emerald-500">
+                      -
+                    </button>
+                    <span className="px-3">
+                      {
+                        selectedProducts.filter((id) => id === productInfo._id)
+                          .length
+                      }
+                    </span>
+                    <button className="border border-emerald-500 bg-emerald-500 px-2 rounded-lg text-white">
+                      +
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           ))}
