@@ -5,6 +5,11 @@ import { useContext, useEffect, useState } from "react";
 export default function CheckoutOutPage() {
   const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
   const [productsInfos, setProductsInfos] = useState([]);
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
   useEffect(() => {
     const uniqueIds = [...new Set(selectedProducts)];
     if (uniqueIds) {
@@ -74,6 +79,36 @@ export default function CheckoutOutPage() {
               </div>
             </div>
           ))}
+        <div>
+          <input
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
+            className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
+            type="text"
+            placeholder="Street address, number"
+          />
+          <input
+            value={city}
+            onChange={(e) => setCity(e.target.value)}
+            className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
+            type="text"
+            placeholder="City and postal code"
+          />
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
+            type="text"
+            placeholder="Your name"
+          />
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
+            type="email"
+            placeholder="Email address"
+          />
+        </div>
       </Layout>
     </div>
   );
