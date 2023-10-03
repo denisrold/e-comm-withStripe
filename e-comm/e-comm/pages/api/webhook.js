@@ -1,4 +1,5 @@
 import { initMongoose } from "@/lib/mongoose";
+import Order from "@/models/Order";
 import { buffer } from "micro";
 //localhost:3000/api/webhook
 const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -17,6 +18,15 @@ export default async function handler(req, res) {
     singningSecret
   );
 
+  if (event?.type === "checkout.session.completed") {
+    const metadata = event.data?.object?.metadata;
+    const paymentStatus = event.data?.object?.payment_status;
+    if (metadata.orderId && paymentStatus === "paid") {
+      const order = await Order.findByIdAndUpdate(metadata.orderId, {
+        paid: 1,
+      });
+    }
+  }
   res.json("ok");
 }
 
