@@ -17,6 +17,7 @@ export default async function handler(req, res) {
     signature,
     singningSecret
   );
+  // EN METADA ESTARAN LOS DATOS TMB POR EJEMPLO EMAIL, POR SI QUIERO HACER ALGO CON EL EMAIL
 
   if (event?.type === "checkout.session.completed") {
     const metadata = event.data?.object?.metadata;
