@@ -32,7 +32,7 @@ export default function Home({ products }) {
         placeholder="Search for products..."
         className="bg-gray-100 w-full py-2 px-4 rounded-xl outline-none"
       />
-      <div>
+      <div className="xl:ml-52 2xl:ml-72">
         {categoryNames?.map((c) => {
           return (
             <div key={c}>

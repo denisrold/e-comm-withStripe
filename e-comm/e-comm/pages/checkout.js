@@ -53,7 +53,7 @@ export default function CheckoutOutPage() {
   }
   const total = subTotal + deliveryPrice;
   return (
-    <div>
+    <div className="">
       <Layout>
         {!productsInfos.length && (
           <div className=" flex justify-center  items-center h-screen font-bold text-lg text-gray-500">
