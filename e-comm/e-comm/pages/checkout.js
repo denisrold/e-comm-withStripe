@@ -130,9 +130,9 @@ export default function CheckoutOutPage() {
                   placeholder="Street address, number"
                   maxlength="70"
                 />
-                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                <span className="block italic font-semibold text-xs text-red-500 -mt-2 ml-4 mb-1">
                   {errors.address}
-                </div>
+                </span>
                 <input
                   name="city"
                   value={city}
@@ -145,9 +145,9 @@ export default function CheckoutOutPage() {
                   placeholder="City and postal code"
                   maxlength="70"
                 />
-                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                <span className="block italic font-semibold text-xs text-red-500 -mt-2 ml-4 mb-1">
                   {errors.city}
-                </div>
+                </span>
                 <input
                   name="name"
                   value={name}
@@ -160,9 +160,9 @@ export default function CheckoutOutPage() {
                   placeholder="Your name"
                   maxlength="50"
                 />
-                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                <span className="block italic font-semibold text-xs text-red-500 -mt-2 ml-4 mb-1">
                   {errors.name}
-                </div>
+                </span>
                 <input
                   name="email"
                   value={email}
@@ -175,9 +175,9 @@ export default function CheckoutOutPage() {
                   placeholder="Email address"
                   maxlength="100"
                 />
-                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 -mb-2">
+                <span className="block italic font-semibold text-xs text-red-500 -mt-2 ml-4 -mb-2">
                   {errors.email}
-                </div>
+                </span>
               </div>
               <div className="mt-4">
                 <div className="flex my-3">

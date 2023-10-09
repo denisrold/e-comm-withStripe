@@ -3,10 +3,10 @@ export const validator = (value) => {
   const name = value.target.name;
 
   const message = {
-    email: "Datos requeridos",
-    name: "Datos requeridos",
-    city: "Datos requeridos",
-    address: "Datos requeridos",
+    email: "Required data",
+    name: "Required data",
+    city: "Required data",
+    address: "Required data",
   };
 
   if (!values) {
@@ -15,7 +15,7 @@ export const validator = (value) => {
   } else if (values && name === "email") {
     const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!emailRegex.test(values)) {
-      return { [name]: "email@email.com" };
+      return { [name]: "example: email@mail.com" };
     } else {
       return { [name]: "" };
     }
@@ -24,11 +24,11 @@ export const validator = (value) => {
     const maxLength = 49;
     const lettersRegex = /^[a-zA-Z\s]+$/;
     if (!capitalLetterRegex.test(values)) {
-      return { [name]: "Primer letra en mayúscula" };
+      return { [name]: "First letter in uppercase" };
     } else if (!lettersRegex.test(values)) {
-      return { [name]: "Solo letras" };
+      return { [name]: "Only letters" };
     } else if (values.length > maxLength) {
-      return { [name]: "No más de 50 letras" };
+      return { [name]: "No more than 50 letters" };
     } else {
       return { [name]: "" };
     }
@@ -36,9 +36,9 @@ export const validator = (value) => {
     const maxLength = 99;
     const minLength = 5;
     if (values.length > maxLength) {
-      return { [name]: "No más de 100 letras" };
+      return { [name]: "no more than 100 letters" };
     } else if (values.length <= minLength) {
-      return { [name]: "No es una dirección válida" };
+      return { [name]: "is not a valid address" };
     } else {
       return { [name]: "" };
     }
