@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import { ProductsContext } from "@/components/ProductContext";
+import validator, { isFormValid } from "@/utils/validations";
 import { useContext, useEffect, useState } from "react";
 
 export default function CheckoutOutPage() {
@@ -9,6 +10,17 @@ export default function CheckoutOutPage() {
   const [city, setCity] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+
+  //Errors Handlers
+  const [errors, setErrors] = useState({});
+
+  const validate = (value) => {
+    const response = validator(value);
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      ...response,
+    }));
+  };
 
   useEffect(() => {
     if (!selectedProducts.length) {
@@ -75,7 +87,7 @@ export default function CheckoutOutPage() {
                   </p>
                   <div className="flex">
                     <div className="grow">${productInfo.price}</div>
-                    <div>
+                    <div className="mt-7 ">
                       <button
                         onClick={() => lessOfThisProduct(productInfo._id)}
                         className="border border-emerald-500 px-2 rounded-lg text-emerald-500"
@@ -109,51 +121,63 @@ export default function CheckoutOutPage() {
                 <input
                   name="address"
                   value={address}
-                  onChange={(e) => setAddress(e.target.value)}
+                  onChange={(e) => {
+                    validate(e);
+                    setAddress(e.target.value);
+                  }}
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="Street address, number"
                   maxlength="70"
                 />
-                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
-                  Error
-                </span>
+                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                  {errors.address}
+                </div>
                 <input
                   name="city"
                   value={city}
-                  onChange={(e) => setCity(e.target.value)}
+                  onChange={(e) => {
+                    validate(e);
+                    setCity(e.target.value);
+                  }}
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="City and postal code"
                   maxlength="70"
                 />
-                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
-                  Error
-                </span>
+                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                  {errors.city}
+                </div>
                 <input
                   name="name"
                   value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => {
+                    validate(e);
+                    setName(e.target.value);
+                  }}
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="Your name"
                   maxlength="50"
                 />
-                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
-                  Error
-                </span>
+                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 mb-1">
+                  {errors.name}
+                </div>
                 <input
                   name="email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    validate(e);
+                    setEmail(e.target.value);
+                  }}
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="email"
                   placeholder="Email address"
                   maxlength="100"
                 />
-                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 -mb-2">
-                  Error
-                </span>
+                <div className="block italic font-semibold text-sm text-red-500 -mt-2 ml-4 -mb-2">
+                  {errors.email}
+                </div>
               </div>
               <div className="mt-4">
                 <div className="flex my-3">
@@ -182,7 +206,12 @@ export default function CheckoutOutPage() {
               ></input>
               <button
                 type="submit"
-                className="bg-emerald-500 p-5 text-white w-full rounded-xl py-2 font-bold my-4 shadow-lg shadow-emerald-300 "
+                className={
+                  isFormValid(address, city, name, email, errors)
+                    ? "bg-emerald-500 p-5 text-white w-full rounded-xl py-2 font-bold my-4 shadow-lg shadow-emerald-300 "
+                    : "bg-gray-500 p-5 text-white w-full rounded-xl py-2 font-bold my-4"
+                }
+                disabled={!isFormValid(address, city, name, email, errors)}
               >
                 Pay ${total}
               </button>
