@@ -113,7 +113,11 @@ export default function CheckoutOutPage() {
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="Street address, number"
+                  maxlength="70"
                 />
+                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
+                  Error
+                </span>
                 <input
                   name="city"
                   value={city}
@@ -121,7 +125,11 @@ export default function CheckoutOutPage() {
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="City and postal code"
+                  maxlength="70"
                 />
+                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
+                  Error
+                </span>
                 <input
                   name="name"
                   value={name}
@@ -129,7 +137,11 @@ export default function CheckoutOutPage() {
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="text"
                   placeholder="Your name"
+                  maxlength="50"
                 />
+                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 mb-1">
+                  Error
+                </span>
                 <input
                   name="email"
                   value={email}
@@ -137,7 +149,11 @@ export default function CheckoutOutPage() {
                   className="bg-gray-200 w-full rounded-lg px-4 py-2 mb-2"
                   type="email"
                   placeholder="Email address"
+                  maxlength="100"
                 />
+                <span className="block italic font-semibold text-sm text-red-700 -mt-2 ml-2 -mb-2">
+                  Error
+                </span>
               </div>
               <div className="mt-4">
                 <div className="flex my-3">
