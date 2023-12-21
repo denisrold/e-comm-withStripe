@@ -59,7 +59,7 @@ export default function Home({ products }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   await initMongoose();
   const products = await findAllProducts();
   return {
