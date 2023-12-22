@@ -26,7 +26,8 @@ export default function Home({ products }) {
       <input
         value={phrase}
         onChange={(e) => {
-          setPhrase(e.target.value);
+          //TOLOWERCASE e.target.value.toLowerCase();
+          setPhrase(e.target.value.toLowerCase());
         }}
         type="text"
         placeholder="Search for products..."
@@ -58,7 +59,7 @@ export default function Home({ products }) {
     </Layout>
   );
 }
-
+//getServerSideProps no permite generacion static por eso se usa getStatic props
 export async function getStaticProps() {
   await initMongoose();
   const products = await findAllProducts();

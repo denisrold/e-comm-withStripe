@@ -11,7 +11,7 @@ export default function Product({ _id, name, price, description, picture }) {
   return (
     <div className="w-64">
       <div className="bg-blue-100 rounded-xl p-5">
-        <img src={picture}></img>
+        <img src={picture} alt="img"></img>
       </div>
       <div className="mt-2">
         <h3 className="font-bold text-lg">{name}</h3>
