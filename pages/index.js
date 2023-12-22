@@ -23,7 +23,7 @@ export default function Home({ products }) {
   return (
     <Layout>
       {" "}
-      <h1 className="text-center text-xl p-1 mb-2 font-bold bg-blue-200 rounded-xl">
+      <h1 className="text-center text-xl p-1 font-bold  bg-blue-200 rounded-xl rounded-bl-none rounded-br-none">
         e-Comm Digital Shop!
       </h1>
       <input
@@ -33,7 +33,7 @@ export default function Home({ products }) {
         }}
         type="text"
         placeholder="Search for products..."
-        className="bg-gray-100 w-full py-2 px-4 rounded-xl outline-none"
+        className="bg-gray-100 w-full py-2 px-4 rounded-xl rounded-tr-none rounded-tl-none outline-none"
       />
       <div className="xl:ml-52 2xl:ml-72">
         {categoryNames?.map((c) => {
