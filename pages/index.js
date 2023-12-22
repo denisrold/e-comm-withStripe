@@ -23,10 +23,12 @@ export default function Home({ products }) {
   return (
     <Layout>
       {" "}
+      <h1 className="text-center text-xl p-1 mb-2 font-bold bg-blue-200 rounded-xl">
+        e-Comm Digital Shop!
+      </h1>
       <input
         value={phrase}
         onChange={(e) => {
-          //TOLOWERCASE e.target.value.toLowerCase();
           setPhrase(e.target.value.toLowerCase());
         }}
         type="text"
