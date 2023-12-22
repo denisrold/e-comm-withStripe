@@ -23,7 +23,7 @@ export default function Home({ products }) {
   return (
     <Layout>
       {" "}
-      <h1 className="text-center text-xl p-1 font-bold  bg-blue-200 rounded-xl rounded-bl-none rounded-br-none">
+      <h1 className="text-center font-raleway text-2xl p-1 font-bolder  bg-blue-200 rounded-xl rounded-bl-none rounded-br-none">
         e-Comm Digital Shop!
       </h1>
       <input

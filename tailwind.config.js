@@ -10,6 +10,9 @@ module.exports = {
       screens: {
         "2xl": "1536px", // Define el tamaño de pantalla "2xl"
       },
+      fontFamily: {
+        raleway: ["Raleway", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
