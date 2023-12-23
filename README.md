@@ -14,11 +14,9 @@
 <p style="margin-top: 10px;">Número: <b>4242 4242 4242 4242 4242</b></p>
 <p>Fecha/Codigo: <b>1234 567</b></p>
 <br/>
-Tecnologias utilizadas para el desarrollo de esta App:
-<b>Javascript, NextJS , MongoDB ,Tailwind CSS.</b> 
+<h4>Tecnologias utilizadas para el desarrollo de esta App: 
+<b>Javascript, NextJS , MongoDB ,Tailwind CSS.</b></h4>
 
-
-<br/>
 <br/>
 <i>*Ningun developer fue herido en el desarrollo de esta Web App.</i>
 
