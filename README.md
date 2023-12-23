@@ -17,7 +17,9 @@
 Tecnologias utilizadas para el desarrollo de esta App:
 <b>Javascript, NextJS , MongoDB ,Tailwind CSS.</b> 
 
-</div>
+
 <br/>
 <br/>
 <i>*Ningun developer fue herido en el desarrollo de esta Web App.</i>
+
+</div>
