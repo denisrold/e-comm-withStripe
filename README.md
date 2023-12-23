@@ -1,5 +1,5 @@
 <div align="center">
-<h1><a href='https://ecomm-by.vercel.app/ target="_blank">Bienvenidos a E-Comm!</a></h1>
+<h1><a href='https://ecomm-by.vercel.app/' target="_blank">Bienvenidos a E-Comm!</a></h1>
 
 <h3>E-Comm es una tienda virtual rápida y amigable para el usuario.</h3>
 
