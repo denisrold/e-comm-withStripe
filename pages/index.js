@@ -24,7 +24,7 @@ export default function Home({ products }) {
     <Layout>
       {" "}
       <h1 className="text-center font-raleway text-2xl p-1 font-bolder text-slate-100 bg-emerald-400 rounded-xl rounded-bl-none rounded-br-none">
-        e-Comm Fast Store!
+        e-Comm Fast Shop!
       </h1>
       <input
         value={phrase}
